@@ -1,13 +1,14 @@
 package hello;
 
-import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement(name = "greeting_root")
+@JsonRootName("salutation")
 public class Greeting {
 
     private final long id;
+
+    @JsonProperty("message")
     private final String content;
 
     public Greeting(long id, String content) {
