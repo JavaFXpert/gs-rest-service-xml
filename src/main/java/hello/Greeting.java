@@ -2,10 +2,12 @@ package hello;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 @JsonRootName("salutation")
 public class Greeting {
 
+    @JacksonXmlProperty(localName="gid", isAttribute=true)
     private final long id;
 
     @JsonProperty("message")
