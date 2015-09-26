@@ -16,8 +16,16 @@ public class GreetingController {
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
         Greeting greeting = new Greeting(counter.incrementAndGet(),
                 String.format(template, name));
-        Greeter greeter = new Greeter("Fred", 1999);
-        greeting.setGreeter(greeter);
+
+        GreeterPerson greeterPerson = new GreeterPerson("Fred", 1999);
+        greeting.setGreeterPerson(greeterPerson);
+
+        GreetingOccasion go = new GreetingOccasion("Christmas");
+        greeting.getGreetingOccasions().add(go);
+
+        go = new GreetingOccasion("Easter");
+        greeting.getGreetingOccasions().add(go);
+
         return greeting;
     }
 }

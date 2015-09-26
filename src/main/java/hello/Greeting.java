@@ -2,7 +2,11 @@ package hello;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @JsonRootName("salutation")
 public class Greeting {
@@ -13,7 +17,11 @@ public class Greeting {
     @JsonProperty("message")
     private final String content;
 
-    private Greeter greeter;
+    private GreeterPerson greeterPerson;
+
+    @JsonProperty("occasion")
+    @JacksonXmlElementWrapper(localName = "occasions")
+    private List<GreetingOccasion> greetingOccasions = new ArrayList<>();
 
     public Greeting(long id, String content) {
         this.id = id;
@@ -28,11 +36,19 @@ public class Greeting {
         return content;
     }
 
-    public Greeter getGreeter() {
-        return greeter;
+    public GreeterPerson getGreeterPerson() {
+        return greeterPerson;
     }
 
-    public void setGreeter(Greeter greeter) {
-        this.greeter = greeter;
+    public void setGreeterPerson(GreeterPerson greeterPerson) {
+        this.greeterPerson = greeterPerson;
+    }
+
+    public List<GreetingOccasion> getGreetingOccasions() {
+        return greetingOccasions;
+    }
+
+    public void setGreetingOccasions(List<GreetingOccasion> greetingOccasions) {
+        this.greetingOccasions = greetingOccasions;
     }
 }

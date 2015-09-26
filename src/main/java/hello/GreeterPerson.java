@@ -3,14 +3,14 @@ package hello;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
-public class Greeter {
+public class GreeterPerson {
 
     @JsonProperty("sender-name")
     private final String name;
 
     private final int year;
 
-    public Greeter(String name, int year) {
+    public GreeterPerson(String name, int year) {
         this.name = name;
         this.year = year;
     }
