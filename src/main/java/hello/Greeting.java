@@ -19,8 +19,8 @@ public class Greeting {
 
     private GreeterPerson greeterPerson;
 
-    @JsonProperty("occasion")
     @JacksonXmlElementWrapper(localName = "occasions")
+    @JsonProperty("occasion")
     private List<GreetingOccasion> greetingOccasions = new ArrayList<>();
 
     public Greeting(long id, String content) {
