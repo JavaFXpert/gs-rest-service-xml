@@ -11,6 +11,8 @@ public class Greeting {
     @JsonProperty("message")
     private final String content;
 
+    private Greeter greeter;
+
     public Greeting(long id, String content) {
         this.id = id;
         this.content = content;
@@ -22,5 +24,13 @@ public class Greeting {
 
     public String getContent() {
         return content;
+    }
+
+    public Greeter getGreeter() {
+        return greeter;
+    }
+
+    public void setGreeter(Greeter greeter) {
+        this.greeter = greeter;
     }
 }
